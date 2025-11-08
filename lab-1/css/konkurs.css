@@ -1,0 +1,201 @@
+/* === Zmienne i auto-tryb systemowy === */
+:root {
+  color-scheme: light dark;
+  --font: ui-sans-serif, -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+
+  /* Light default */
+  --bg: #f6f7f9;
+  --text: #1b1d1f;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --card-border: #e5e7eb;
+  --field-bg: #ffffff;
+  --field-border: #d1d5db;
+  --label: #374151;
+  --btn: #22a057;
+  --btn-hover: #45a049;
+  --shadow: 0 6px 24px rgba(0,0,0,.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c0f;
+    --text: #f5f5f7;
+    --muted: #a3a3a3;
+    --card: #14161a;
+    --card-border: #2b2f36;
+    --field-bg: #1b1d21;
+    --field-border: #333741;
+    --label: #f2f2f2;
+    --btn: #22a057;
+    --btn-hover: #45a049;
+    --shadow: 0 10px 40px rgba(0,0,0,.6);
+  }
+}
+
+/* === Reset i baza === */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Layout strony */
+.page { max-width: 500px; margin: 3rem auto; padding: 0 1rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: .9rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Typografia i formularz */
+
+label { font-weight: 600; color: var(--label); font-size: 16px; }
+.grid { display: grid; gap: 0.9rem; }
+.grid label { margin-bottom: 0.25rem; }
+
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+button {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;               /* wymaganie */
+  padding: 0.7rem 0.8rem;
+  border-radius: .5rem;
+  border: 1px solid var(--field-border);
+  background: var(--field-bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+input[type="number"] { padding-right: 2.2rem; }
+input:focus, select:focus {
+  border-color: #7aa7ff;
+  box-shadow: 0 0 0 3px rgba(122,167,255,.25);
+}
+
+input[type="color"] {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--field-border);
+  border-radius: .5rem;
+  cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: none; border-radius: .4rem; }
+input[type="color"]:focus {
+  border-color: #7aa7ff;
+  box-shadow: 0 0 0 3px rgba(122,167,255,.25);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--btn);
+}
+
+fieldset { border-radius: .6rem; padding: .9rem 1rem 1rem; }
+legend   { padding: 0 .5rem; font-weight: 700; }
+
+.option-group {
+  display: grid;
+  row-gap: .75rem;
+}
+.option-group legend {
+  grid-column: 1 / -1;
+  margin-bottom: .5rem;
+}
+.option,
+.consent {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  column-gap: .6rem;
+  align-items: center;
+}
+.consent {
+  margin-top: .9rem;
+  align-items: start;
+}
+.option span,
+.consent span { font-weight: 500; color: var(--text); }
+
+button {
+  background: var(--btn);
+  color: #fff;
+  border: none;
+  margin-top: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+button:hover { background: var(--btn-hover); }
+
+.hint { text-align: center; color: var(--muted); margin-top: 1rem; }
+
+/* === Dostępność: ukrycie techniczne checkboxa === */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(100%);
+  white-space: nowrap; border: 0;
+}
+
+/* === Przełącznik motywu (bez JS) === */
+.theme-toggle {
+  position: fixed;
+  right: 24px;
+  top: 24px;
+  z-index: 1000;
+  width: 42px; height: 42px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.theme-toggle {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Wymuszenie DARK po kliknięciu */
+#theme-toggle:checked ~ .page {
+  color-scheme: dark;
+  --bg: #0b0c0f;
+  --text: #f5f5f7;
+  --muted: #a3a3a3;
+  --card: #14161a;
+  --card-border: #2b2f36;
+  --field-bg: #1b1d21;
+  --field-border: #333741;
+  --label: #f2f2f2;
+  --btn: #22a057;
+  --btn-hover: #45a049;
+  --shadow: 0 10px 40px rgba(0,0,0,.6);
+}
+
+#theme-toggle:focus-visible + .theme-toggle {
+  outline: 3px solid rgba(122,167,255,.8);
+  outline-offset: 3px;
+}
+
+/* Kursory – wymaganie z zadania */
+button,
+input[type=radio],
+input[type=checkbox],
+label.option,
+label.consent,
+select,
+input[type=color],
+.theme-toggle { cursor: pointer; }

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Uwagi o formularzach HTML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Uwagi o formularzach HTML</h1>
+    <nav aria-label="Główna nawigacja">
+      <ul class="nav">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="login.html">Logowanie</a></li>
+        <li><a href="konkurs.html">Konkurs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article>
+      <section>
+        <h2>Kiedy warto</h2>
+        <ul>
+          <li>Logowanie, kontakt, proste zgłoszenia/ankiety.</li>
+          <li>Natywna walidacja HTML5 (email, date, number, color).</li>
+          <li>Dobre wsparcie mobilne i dostępność.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ograniczenia bez JavaScript</h2>
+        <ul>
+          <li>Brak logiki warunkowej/dynamicznych zmian UI.</li>
+          <li>Tylko prosta walidacja — bez złożonych reguł.</li>
+          <li>Brak zapamiętywania stanu/preview bez backendu.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Dobre praktyki</h2>
+        <ol>
+          <li>Stosuj semantykę: <code>form</code>, <code>fieldset</code>, <code>legend</code>, <code>label</code>.</li>
+          <li>Dostępność: kolejność focusu, kontrast, opisy pól.</li>
+          <li>Systemowe czcionki, spójne odstępy, responsywność.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2025 • PIU Labs</small>
+  </footer>
+</body>
+</html>

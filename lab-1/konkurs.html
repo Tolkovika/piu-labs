@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Formularz konkursu plastycznego</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/konkurs.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Przełącznik motywu -->
+  <input id="theme-toggle" type="checkbox" class="visually-hidden" aria-label="Change theme">
+  <label class="theme-toggle" for="theme-toggle" title="Change theme" aria-hidden="true">🌗</label>
+
+  <div class="page">
+    <header class="header">
+      <h1>Zgłoszenie do Konkursu Plastycznego</h1>
+    </header>
+
+    <main>
+      <form class="card form" action="https://httpbin.org/get" method="get">
+        <fieldset class="grid">
+          <legend>Dane uczestnika</legend>
+
+          <label for="imie">Imię</label>
+          <input id="imie" name="imie" type="text" maxlength="30" required>
+
+          <label for="nazwisko">Nazwisko</label>
+          <input id="nazwisko" name="nazwisko" type="text" maxlength="50" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+
+          <label for="miasto">Miasto</label>
+          <input id="miasto" name="miasto" list="lista-miast" placeholder="Wpisz lub wybierz" required>
+          <datalist id="lista-miast">
+            <option value="Warszawa">
+            <option value="Kraków">
+            <option value="Gdańsk">
+            <option value="Poznań">
+            <option value="Wrocław">
+          </datalist>
+
+          <label for="urodzenie">Data urodzenia</label>
+          <input id="urodzenie" name="urodzenie" type="date" required>
+
+          <label for="liczba">Liczba prac (1–6)</label>
+          <input id="liczba" name="liczba" type="number" min="1" max="6" required>
+
+          <label for="kolor">Kolor przewodni</label>
+          <input id="kolor" name="kolor" type="color" required value="#ffcc00">
+
+          <label for="kategoria">Kategoria</label>
+          <select id="kategoria" name="kategoria" required>
+            <option value="" disabled selected>-- wybierz kategorię --</option>
+            <option>Rysunek</option>
+            <option>Malarstwo</option>
+            <option>Grafika cyfrowa</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="option-group">
+          <legend>Publikacja prac</legend>
+          <label class="option">
+            <input type="radio" name="publikacja" value="tak" required>
+            <span>Tak</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="publikacja" value="nie" required>
+            <span>Nie</span>
+          </label>
+        </fieldset>
+
+        <label class="consent">
+          <input type="checkbox" name="zgoda" required>
+          <span>Akceptuję regulamin</span>
+        </label>
+
+        <div class="actions">
+          <button type="submit">Wyślij</button>
+        </div>
+      </form>
+
+      <p class="hint"><strong>GET</strong> do <code>httpbin.org</code>.</p>
+    </main>
+
+    <footer class="footer">
+      <small>&copy; 2025 • PIU Labs</small>
+    </footer>
+  </div>
+</body>
+</html>

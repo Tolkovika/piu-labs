@@ -1,0 +1,90 @@
+/* Systemowe czcionki */
+:root {
+  --font: ui-sans-serif, -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --bg: #f7f7f8;
+  --text: #111;
+  --muted: #666;
+  --card: #fff;
+  --border: #e5e7eb;
+  --primary: #22a057;
+  --primary-hover: #45a049; /* wymaganie */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.site-header, .site-footer {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.site-footer { border-top: 1px solid var(--border); border-bottom: none; }
+
+h1 { margin: 0 0 .5rem; font-size: clamp(1.6rem, 2.5vw, 2rem); }
+h2 { margin: 1rem 0 .5rem; }
+
+.nav {
+  list-style: none; margin: .25rem 0 0; padding: 0; display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.nav a {
+  text-decoration: none; color: var(--text); border:1px solid var(--border); padding:.4rem .7rem; border-radius:.5rem; background: var(--card);
+}
+.nav a:hover { background:#f0f2f4; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  padding: 1rem;
+  max-width: 640px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.form label { display:block; font-weight:600; margin-top:.75rem; }
+.form input, .form select, .form button {
+  width: 100%;
+  font: inherit; font-size: 16px; /* wymagane 16px w inputach/selectach */
+  padding: .6rem .7rem;
+  border-radius: .5rem;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.form button {
+  margin-top: 1rem;
+  background: var(--primary); color: #fff; border: none; cursor: pointer; /* pointer na przycisku */
+}
+.form button:hover { background: var(--primary-hover); }
+
+.hint { text-align:center; color: var(--muted); }
+.prose p, .prose li { max-width: 65ch; }
+
+/* Strona główna */
+.hero {
+  max-width: 480px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 22px 45px rgba(17, 17, 17, .08);
+}
+.hero h2 { margin-top: 0; margin-bottom: 0.75rem; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.hero p { margin: 0 0 1.75rem; color: var(--muted); }
