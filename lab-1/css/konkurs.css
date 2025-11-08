@@ -162,12 +162,24 @@ button:hover { background: var(--btn-hover); }
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow);
   cursor: pointer;
-}
-
-.theme-toggle {
   font-size: 22px;
   line-height: 1;
 }
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  display: none;
+}
+.theme-toggle .icon-sun { display: inline; }
+
+@media (prefers-color-scheme: dark) {
+  .theme-toggle .icon-sun { display: none; }
+  .theme-toggle .icon-moon { display: inline; }
+}
+
+#theme-toggle:checked ~ .theme-toggle .icon-sun { display: none; }
+#theme-toggle:checked ~ .theme-toggle .icon-moon { display: inline; }
+
+.icon-auto { display: none !important; }
 
 /* Wymuszenie DARK po kliknięciu */
 #theme-toggle:checked ~ .page {
