@@ -1,0 +1,118 @@
+:root {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  color: #14213d;
+  background-color: #f6f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top, #eef3ff, #f6f7fb 55%);
+  color: inherit;
+}
+
+main {
+  width: min(960px, 90vw);
+  margin: 0 auto 4rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  width: min(960px, 90vw);
+}
+
+.hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  color: #546285;
+  margin-bottom: 0.75rem;
+}
+
+.hero__subtitle {
+  font-size: 1rem;
+  color: #4a5671;
+  margin-top: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  margin: 0;
+  color: #0c1d37;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-nav {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.task-nav a {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #0c1d37;
+  background: #fff;
+  border: 1px solid rgba(12, 29, 55, 0.1);
+  box-shadow: 0 10px 30px rgba(20, 33, 61, 0.1);
+  transition: transform 200ms ease, box-shadow 200ms ease,
+    background-color 200ms ease;
+}
+
+.task-nav a:hover {
+  transform: translateY(-2px);
+  background-color: #dfe8ff;
+  box-shadow: 0 15px 35px rgba(20, 33, 61, 0.16);
+}
+
+.labs {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 60px rgba(15, 19, 38, 0.12);
+}
+
+.lab-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.lab-list a {
+  display: block;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(12, 29, 55, 0.08);
+  text-decoration: none;
+  font-weight: 600;
+  color: #10213f;
+  background-color: #f9fbff;
+  transition: background-color 200ms ease, border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.lab-list a:hover {
+  transform: translateY(-3px);
+  border-color: rgba(12, 29, 55, 0.35);
+  background-color: #e8efff;
+}
