@@ -1,0 +1,120 @@
+/* Reset i ustawienia globalne */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+/* Nagłówek strony */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* Główny kontener */
+main {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+/* Galeria - mobile first (1 kolumna) */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+}
+
+/* Figure - karta zdjęcia */
+figure {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+figure:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Obrazy */
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.3s ease;
+}
+
+figure:hover img {
+    transform: scale(1.05);
+}
+
+/* Podpisy */
+figcaption {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Tablet i większe - nadal 1 kolumna, ale ograniczona szerokość */
+@media (min-width: 800px) {
+    body {
+        padding: 3rem 2rem;
+    }
+
+    .gallery {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop - 2 kolumny */
+@media (min-width: 1200px) {
+    header h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        max-width: 1800px;
+    }
+}
+
+/* Bardzo duże ekrany - większe odstępy */
+@media (min-width: 1600px) {
+    body {
+        padding: 4rem 3rem;
+    }
+
+    .gallery {
+        gap: 3rem;
+    }
+
+    figcaption {
+        font-size: 1.1rem;
+        padding: 2rem;
+    }
+}
