@@ -1,0 +1,254 @@
+/* Bazowe style body (już istniejące + rozszerzenie) */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+/* Nagłówek i fieldset */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.theme-picker {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+}
+
+.theme-picker legend {
+  font-weight: bold;
+  color: #555;
+  padding: 0 0.5rem;
+}
+
+.theme-picker label {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/* Container */
+.container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Bazowe style dla .item */
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 2rem;
+  font-weight: normal;
+  min-height: 120px;
+  transition: all 0.3s ease;
+}
+
+/* === WARIANT NIEBIESKI === */
+body:has(input[value="blue"]:checked) .item {
+  background-color: #3b82f6;
+  color: white;
+  width: 200px;
+  height: 120px;
+  flex-shrink: 0;
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+body:has(input[value="blue"]:checked) .container {
+  justify-content: center;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+/* === WARIANT CZERWONY === */
+body:has(input[value="red"]:checked) .item {
+  background-color: #ef4444;
+  color: white;
+  width: 200px;
+  height: 120px;
+  flex-shrink: 0;
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+body:has(input[value="red"]:checked) .container {
+  justify-content: center;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+/* Zmiana kolejności i rozmiaru dla wariantu czerwonego */
+body:has(input[value="red"]:checked) .item:nth-child(1) {
+  order: 3;
+  width: 300px;
+  flex-direction: column;
+  font-weight: bold;
+  gap: 0.3rem;
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+body:has(input[value="red"]:checked) .item:nth-child(1)::after {
+  content: "Jestem większy i na środku!";
+  font-size: 0.4em;
+  font-weight: normal;
+}
+
+body:has(input[value="red"]:checked) .item:nth-child(2) {
+  order: 1;
+}
+
+body:has(input[value="red"]:checked) .item:nth-child(3) {
+  order: 2;
+}
+
+body:has(input[value="red"]:checked) .item:nth-child(4) {
+  order: 4;
+}
+
+body:has(input[value="red"]:checked) .item:nth-child(5) {
+  order: 5;
+}
+
+/* === WARIANT ZIELONY === */
+body:has(input[value="green"]:checked) .item {
+  background-color: #22c55e;
+  color: white;
+  position: relative;
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 400px;
+    height: 120px;
+  }
+}
+
+body:has(input[value="green"]:checked) .container {
+  @media (min-width: 1025px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Układ schodkowy dla zielonego (desktop) */
+body:has(input[value="green"]:checked) .item:nth-child(1) {
+  @media (min-width: 1025px) {
+    width: 100%;
+    order: 5;
+    margin-left: 0;
+  }
+  
+  @media (max-width: 1024px) {
+    order: 5;
+  }
+}
+
+body:has(input[value="green"]:checked) .item:nth-child(2) {
+  @media (min-width: 1025px) {
+    width: 80%;
+    order: 4;
+    margin-left: 20%;
+  }
+  
+  @media (max-width: 1024px) {
+    order: 4;
+  }
+}
+
+body:has(input[value="green"]:checked) .item:nth-child(3) {
+  @media (min-width: 1025px) {
+    width: 60%;
+    order: 3;
+    margin-left: 40%;
+  }
+  
+  @media (max-width: 1024px) {
+    order: 3;
+  }
+}
+
+body:has(input[value="green"]:checked) .item:nth-child(4) {
+  @media (min-width: 1025px) {
+    width: 40%;
+    order: 2;
+    margin-left: 60%;
+  }
+  
+  @media (max-width: 1024px) {
+    order: 2;
+  }
+}
+
+body:has(input[value="green"]:checked) .item:nth-child(5) {
+  @media (min-width: 1025px) {
+    width: 20%;
+    order: 1;
+    margin-left: 80%;
+  }
+  
+  @media (max-width: 1024px) {
+    order: 1;
+  }
+}
+
+/* Emoji w kafelku 1 dla zielonego */
+body:has(input[value="green"]:checked) .item:nth-child(1)::before {
+  content: "😀";
+  position: absolute;
+  left: 1rem;
+  font-size: 2em;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+body:has(input[value="green"]:checked) .item:nth-child(1)::after {
+  content: "😀";
+  position: absolute;
+  right: 1rem;
+  font-size: 2em;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
