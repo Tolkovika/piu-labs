@@ -1,0 +1,284 @@
+/* Reset i ustawienia globalne */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #2c2c34;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+.page {
+    max-width: min(100% - 2rem, 1200px);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: #fff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: #f5f5f5;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+/* Karta produktu - główny kontener */
+.product-card {
+    --accent: #2f7d32;
+    --accent-dark: #1f5a23;
+    --frame-color: #2f7d32;
+    --product-image: url("../img/polo_g.png");
+
+    background-color: #f5f5f5;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: min(100% - 2rem, 900px);
+    margin: 1.5rem auto;
+    padding: 2rem;
+    color: #333;
+}
+
+.product-card__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Kontener na obraz */
+.product-card__image {
+    flex: 1 1 500px;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    border: 3px solid var(--frame-color);
+    background-image: var(--product-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+/* Kontener z opisem */
+.product-card__info {
+    flex: 0 0 300px;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Header karty (tytuł + badge) */
+.product-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.product-card__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c2c34;
+    margin: 0;
+}
+
+.product-card__badge {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Opis */
+.product-card__desc {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Sekcje (kolor, rozmiar) */
+.product-card__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.product-card__label {
+    font-weight: 600;
+    color: #2c2c34;
+    font-size: 0.95rem;
+}
+
+/* Kolorowe kółka */
+.product-card__colors {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.color-dot {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.1);
+}
+
+.color-dot.is-active {
+    border-color: #2c2c34;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--accent);
+}
+
+.color-dot--blue {
+    background-color: #2f5fbf;
+}
+
+.color-dot--red {
+    background-color: #d6453f;
+}
+
+.color-dot--green {
+    background-color: #2f7d32;
+}
+
+.color-dot--yellow {
+    background-color: #f9a825;
+}
+
+/* Przyciski rozmiarów */
+.product-card__sizes {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.size-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 3rem;
+}
+
+.size-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.size-btn--active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.size-btn--active:hover {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+/* Footer (cena + przycisk) */
+.product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.product-card__price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c2c34;
+}
+
+.product-card__cta {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.product-card__cta:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card__cta:active {
+    transform: translateY(0);
+}
+
+.product-card__cta-icon {
+    font-size: 1.2rem;
+}
+
+/* Warianty kolorystyczne */
+.product-card--blue {
+    --accent: #2f5fbf;
+    --accent-dark: #203f80;
+    --frame-color: #2f5fbf;
+    --product-image: url("../img/polo_b.png");
+}
+
+.product-card--red {
+    --accent: #d6453f;
+    --accent-dark: #9c302b;
+    --frame-color: #d6453f;
+    --product-image: url("../img/polo_r.png");
+}
+
+.product-card--green {
+    --accent: #2f7d32;
+    --accent-dark: #1f5a23;
+    --frame-color: #2f7d32;
+    --product-image: url("../img/polo_g.png");
+}
+
+.product-card--yellow {
+    --accent: #f9a825;
+    --accent-dark: #c17900;
+    --frame-color: #f9a825;
+    --product-image: url("../img/polo_y.png");
+}
