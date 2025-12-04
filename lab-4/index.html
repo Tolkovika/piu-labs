@@ -1,12 +1,88 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <title>Lab 4</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <h1>Lab 4</h1>
-    <a href="..">Powrót</a>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aplikacja Kanban - Lab 4, tablica zadań z trzema kolumnami" />
+    <title>Kanban – Lab-4</title>
+    <link rel="stylesheet" href="css/kanban.css" />
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Kanban – Lab-4</h1>
+    </header>
+
+    <main class="board" role="main" aria-label="Tablica Kanban">
+        <!-- Kolumna: Do zrobienia -->
+        <section class="column" data-column="todo" aria-label="Kolumna: Do zrobienia">
+            <header class="column__header">
+                <h2 class="column__title">Do zrobienia</h2>
+                <div class="column__controls">
+                    <button class="column__add-btn" aria-label="Dodaj nową kartę do kolumny 'Do zrobienia'">
+                        Dodaj kartę
+                    </button>
+                    <button class="column__color-btn" aria-label="Zmień kolory wszystkich kart w kolumnie">
+                        Koloruj kolumnę
+                    </button>
+                    <button class="column__sort-btn" aria-label="Sortuj karty alfabetycznie">
+                        Sortuj
+                    </button>
+                </div>
+                <div class="column__counter" aria-live="polite">
+                    Karty: <span class="column__count">0</span>
+                </div>
+            </header>
+            <div class="column__cards" data-cards-container role="list"></div>
+        </section>
+
+        <!-- Kolumna: W trakcie -->
+        <section class="column" data-column="doing" aria-label="Kolumna: W trakcie">
+            <header class="column__header">
+                <h2 class="column__title">W trakcie</h2>
+                <div class="column__controls">
+                    <button class="column__add-btn" aria-label="Dodaj nową kartę do kolumny 'W trakcie'">
+                        Dodaj kartę
+                    </button>
+                    <button class="column__color-btn" aria-label="Zmień kolory wszystkich kart w kolumnie">
+                        Koloruj kolumnę
+                    </button>
+                    <button class="column__sort-btn" aria-label="Sortuj karty alfabetycznie">
+                        Sortuj
+                    </button>
+                </div>
+                <div class="column__counter" aria-live="polite">
+                    Karty: <span class="column__count">0</span>
+                </div>
+            </header>
+            <div class="column__cards" data-cards-container role="list"></div>
+        </section>
+
+        <!-- Kolumna: Zrobione -->
+        <section class="column" data-column="done" aria-label="Kolumna: Zrobione">
+            <header class="column__header">
+                <h2 class="column__title">Zrobione</h2>
+                <div class="column__controls">
+                    <button class="column__add-btn" aria-label="Dodaj nową kartę do kolumny 'Zrobione'">
+                        Dodaj kartę
+                    </button>
+                    <button class="column__color-btn" aria-label="Zmień kolory wszystkich kart w kolumnie">
+                        Koloruj kolumnę
+                    </button>
+                    <button class="column__sort-btn" aria-label="Sortuj karty alfabetycznie">
+                        Sortuj
+                    </button>
+                </div>
+                <div class="column__counter" aria-live="polite">
+                    Karty: <span class="column__count">0</span>
+                </div>
+            </header>
+            <div class="column__cards" data-cards-container role="list"></div>
+        </section>
+    </main>
+
+    <script src="js/kanban.js"></script>
+</body>
+
 </html>
