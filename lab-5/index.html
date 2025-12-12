@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-5: Kształty</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #add-square {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #add-circle {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        #recolor-squares {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        #recolor-circles {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+        }
+
+        .counters {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .counter-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        #shapes-container {
+            min-height: 300px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 2px dashed #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .shape {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .shape:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .shape:active {
+            transform: scale(0.95);
+        }
+
+        .shape.square {
+            border-radius: 8px;
+        }
+
+        .shape.circle {
+            border-radius: 50%;
+        }
+
+        .empty-state {
+            width: 100%;
+            text-align: center;
+            color: #999;
+            padding: 60px 20px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .control-group {
+                width: 100%;
+            }
+
+            button {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .shape {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🔷 Kształty 🔶</h1>
+            <p class="subtitle">Dodawaj, usuwaj i przekolorowuj kształty - Lab 5</p>
+        </header>
+
+        <section class="controls">
+            <div class="control-group">
+                <button id="add-square">➕ Dodaj kwadrat</button>
+                <button id="add-circle">➕ Dodaj kółko</button>
+            </div>
+            <div class="control-group">
+                <button id="recolor-squares">🎨 Przekoloruj kwadraty</button>
+                <button id="recolor-circles">🎨 Przekoloruj kółka</button>
+            </div>
+        </section>
+
+        <section class="counters">
+            <div class="counter">
+                <span class="counter-label">Kwadraty:</span>
+                <span class="counter-value" id="squares-count">0</span>
+            </div>
+            <div class="counter">
+                <span class="counter-label">Kółka:</span>
+                <span class="counter-value" id="circles-count">0</span>
+            </div>
+            <div class="counter">
+                <span class="counter-label">Wszystkie:</span>
+                <span class="counter-value" id="total-count">0</span>
+            </div>
+        </section>
+
+        <section id="shapes-container">
+            <div class="empty-state">Kliknij przycisk, aby dodać kształt ✨</div>
+        </section>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
