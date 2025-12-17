@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Biblioteka Ajax - Lab 6, demonstracja użycia" />
+    <title>Biblioteka Ajax – Lab-6</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Biblioteka Ajax – Lab-6</h1>
+        <p class="subtitle">Modułowa biblioteka do obsługi HTTP w JavaScript</p>
+    </header>
+
+    <main class="container">
+        <!-- Sekcja GET -->
+        <section class="demo-section">
+            <h2>🔍 GET Request</h2>
+            <p>Pobierz dane z API (JSONPlaceholder)</p>
+            <div class="controls">
+                <button id="btn-get" class="btn btn-primary">
+                    Pobierz użytkownika (ID: 1)
+                </button>
+                <button id="btn-get-all" class="btn btn-secondary">
+                    Pobierz wszystkich użytkowników
+                </button>
+            </div>
+            <div id="result-get" class="result-box"></div>
+        </section>
+
+        <!-- Sekcja POST -->
+        <section class="demo-section">
+            <h2>➕ POST Request</h2>
+            <p>Utwórz nowy zasób</p>
+            <div class="controls">
+                <input type="text" id="post-title" placeholder="Tytuł posta" class="input" />
+                <textarea id="post-body" placeholder="Treść posta" class="textarea"></textarea>
+                <button id="btn-post" class="btn btn-success">
+                    Utwórz post
+                </button>
+            </div>
+            <div id="result-post" class="result-box"></div>
+        </section>
+
+        <!-- Sekcja PUT -->
+        <section class="demo-section">
+            <h2>✏️ PUT Request</h2>
+            <p>Zaktualizuj istniejący zasób</p>
+            <div class="controls">
+                <input type="number" id="put-id" placeholder="ID posta" value="1" class="input" />
+                <input type="text" id="put-title" placeholder="Nowy tytuł" class="input" />
+                <button id="btn-put" class="btn btn-warning">
+                    Aktualizuj post
+                </button>
+            </div>
+            <div id="result-put" class="result-box"></div>
+        </section>
+
+        <!-- Sekcja DELETE -->
+        <section class="demo-section">
+            <h2>🗑️ DELETE Request</h2>
+            <p>Usuń zasób</p>
+            <div class="controls">
+                <input type="number" id="delete-id" placeholder="ID posta" value="1" class="input" />
+                <button id="btn-delete" class="btn btn-danger">
+                    Usuń post
+                </button>
+            </div>
+            <div id="result-delete" class="result-box"></div>
+        </section>
+
+        <!-- Sekcja Custom Config -->
+        <section class="demo-section">
+            <h2>⚙️ Custom Configuration</h2>
+            <p>Test z niestandardowymi opcjami (krótki timeout)</p>
+            <div class="controls">
+                <button id="btn-timeout" class="btn btn-info">
+                    Test timeout (100ms)
+                </button>
+                <button id="btn-error" class="btn btn-danger">
+                    Test błędu 404
+                </button>
+            </div>
+            <div id="result-custom" class="result-box"></div>
+        </section>
+
+        <!-- Dokumentacja -->
+        <section class="docs-section">
+            <h2>📚 Dokumentacja</h2>
+            <div class="docs-content">
+                <h3>Inicjalizacja</h3>
+                <pre><code>const api = new Ajax({
+  baseURL: 'https://jsonplaceholder.typicode.com',
+  headers: {
+    'Authorization': 'Bearer token123'
+  },
+  timeout: 5000
+});</code></pre>
+
+                <h3>Metody</h3>
+                <pre><code>// GET
+const user = await api.get('/users/1');
+
+// POST
+const newPost = await api.post('/posts', {
+  title: 'Tytuł',
+  body: 'Treść'
+});
+
+// PUT
+const updated = await api.put('/posts/1', {
+  title: 'Nowy tytuł'
+});
+
+// DELETE
+await api.delete('/posts/1');</code></pre>
+
+                <h3>Obsługa błędów</h3>
+                <pre><code>try {
+  const data = await api.get('/endpoint');
+} catch (error) {
+  console.error(error.message);
+  // "HTTP Error 404: Not Found"
+  // "Request timeout after 5000ms"
+  // "Network error: ..."
+}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/ajax.js"></script>
+    <script src="js/demo.js"></script>
+</body>
+
+</html>
